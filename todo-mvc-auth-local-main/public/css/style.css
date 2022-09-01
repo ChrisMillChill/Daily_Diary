@@ -18,3 +18,14 @@ textarea {
     
     text-align: center;
   }
+
+.login-logo {
+  max-width: 250px;
+  padding-bottom: 16px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
