@@ -3,8 +3,18 @@ h1{
 }
 .completed{
     text-decoration: line-through;
-    color: gray;
+    color: rgb(173, 68, 68);
 }
 .not{
     text-decoration: underline;
 }
+
+textarea {
+    width: 450px;
+    height: 100px;
+  }
+  
+  body{
+    
+    text-align: center;
+  }
