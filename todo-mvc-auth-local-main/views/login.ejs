@@ -4,23 +4,64 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Daily Diary | Login</title>
 </head>
 <body>
-    <% if (locals.messages.errors) { %>
-        <% messages.errors.forEach( el => { %>
-            <div class="alert alert-danger"><%= el.msg %></div>
-        <% }) %>    
-    <% } %>
-    <% if (locals.messages.info) { %>
-        <% messages.info.forEach( el => { %>
-            <div class="alert alert-danger"><%= el.msg %></div>
-        <% }) %>    
-    <% } %>
-    <form action="/login" method="POST">
+  <main>
+    <section class="hero is-fullheight has-background-warning-light">
+      <div class="hero-body">
+        <div class="container">
+          <a href="/">
+            <figure class="image center pb-6">
+              <img class="login-logo" src="/images/logo-drk-g.svg">
+            </figure>
+          </a>
+
+          <form class="box" action="/login" method="POST">
+
+            <% if (locals.messages.errors) { %>
+              <% messages.errors.forEach( el => { %>
+                  <div class="notification is-danger is-light"><%= el.msg %></div>
+              <% }) %>    
+            <% } %>
+            <% if (locals.messages.info) { %>
+              <% messages.info.forEach( el => { %>
+                  <div class="notification is-danger is-light"><%= el.msg %></div>
+              <% }) %>    
+            <% } %>
+
+            <div class="field">
+              <label class="label">Email</label>
+              <div class="control">
+                <input class="input" type="email" name="email" placeholder="e.g. alex@example.com">
+              </div>
+            </div>
+          
+            <div class="field">
+              <label class="label">Password</label>
+              <div class="control">
+                <input class="input" type="password" name="password" placeholder="********">
+              </div>
+            </div> 
+            <input type="submit" class="button is-warning is-fullwidth mt-5 is-size-5" value="Log In">
+          </form>
+          <div>
+            <p class="has-text-centered p-4 is-vcentered">Don't have an account?
+              <a href="/signup">Sign up</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+    <!-- <form action="/login" method="POST" class="box">
         <input type="email" name="email" placeholder="Email">
         <input type="password" name="password" placeholder="Password">
         <input type="submit">
-    </form>
+    </form> -->
+
 </body>
 </html>
