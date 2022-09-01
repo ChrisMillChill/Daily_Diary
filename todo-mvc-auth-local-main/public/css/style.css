@@ -12,11 +12,22 @@ h1{
 textarea {
     width: 450px;
     height: 100px;
+  }
+  
+  body{
+    
+    text-align: center;
+  }
+
+.login-logo {
+  max-width: 250px;
+  padding-bottom: 16px;
 }
 
-body{
-
-text-align: center;
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .form-fields {
