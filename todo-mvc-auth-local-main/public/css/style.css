@@ -12,9 +12,27 @@ h1{
 textarea {
     width: 450px;
     height: 100px;
-  }
-  
-  body{
-    
-    text-align: center;
-  }
+}
+
+body{
+
+text-align: center;
+}
+
+.form-fields {
+    width: 450px;
+    height: 300px;
+    margin: 0 auto;
+}
+h3 {
+    font-size: 1.8rem;
+}
+h5 {
+    font-size: 1.2rem;
+}
+p {
+    margin: 0 auto;
+    border: 1px solid black;
+    padding: 20px;
+    width: 450px;
+}

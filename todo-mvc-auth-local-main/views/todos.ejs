@@ -19,7 +19,9 @@
     <ul>
     <% todos.forEach( el => { %>
             <li class='todoItem' data-id='<%=el._id%>'>
-                <textarea class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></textarea>
+                <h3><%= el.subject %></h3>
+                <h5><%= el.entryDate %></h5>
+                <p><%= el.todo %></p>
                 <button class='del'> Delete </button>
             </li>
     <% }) %>    
@@ -28,7 +30,12 @@
     <h2><%= user.userName %> has <%= left %> Journal Entries.</h2>
     <div class="divider"></div>
     <form action="/todos/createTodo" method='POST'>
-        <textarea type="text" placeholder="Write Your Journal entry" name='todoItem'></textarea>
+        <div class="form-fields">
+            <input class="field" type="text" placeholder="Subject" name="subject">
+            <input class="field" type="date" name="entryDate">
+            <textarea type="text" placeholder="Write Your Journal entry" name='todoItem'></textarea>
+
+        </div>
         <br>
         <input type="submit">
     </form>
