@@ -16,6 +16,19 @@
 <body>
     
     <h1>Journal Entries</h1>
+    <h2><%= user.userName %> has <%= left %> Journal Entries.</h2>
+   
+    <form action="/todos/createTodo" method='POST'>
+        <div class="form-fields">
+            <input class="field" type="text" placeholder="Subject" name="subject">
+            <input class="field" type="date" name="entryDate">
+            <textarea type="text" placeholder="Write Your Journal entry" name='todoItem'></textarea>
+            <input type="submit">
+        </div>
+       
+    </form>
+    <a href="/logout">Logout</a>
+    <div class="divider"></div>
     <ul>
     <% todos.forEach( el => { %>
             <li class='todoItem' data-id='<%=el._id%>'>
@@ -27,20 +40,7 @@
     <% }) %>    
     </ul>
 
-    <h2><%= user.userName %> has <%= left %> Journal Entries.</h2>
-    <div class="divider"></div>
-    <form action="/todos/createTodo" method='POST'>
-        <div class="form-fields">
-            <input class="field" type="text" placeholder="Subject" name="subject">
-            <input class="field" type="date" name="entryDate">
-            <textarea type="text" placeholder="Write Your Journal entry" name='todoItem'></textarea>
 
-        </div>
-        <br>
-        <input type="submit">
-    </form>
-    <br>
-    <a href="/logout">Logout</a>
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
             
