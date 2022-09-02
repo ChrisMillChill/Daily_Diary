@@ -46,7 +46,8 @@ app.use(
       store: new MongoStore({ mongooseConnection: mongoose.connection }),
     })
   )
-  
+
+ 
 // Passport middleware
 app.use(passport.initialize())
 app.use(passport.session())
