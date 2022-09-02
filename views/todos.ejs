@@ -36,6 +36,7 @@
                 <h5><%= el.entryDate %></h5>
                 <p><%= el.todo %></p>
                 <button class='del'> Delete </button>
+                <a href="/edit/<%= el._id %>"><button class="edit">Edit</button></a>
             </li>
     <% }) %>    
     </ul>
