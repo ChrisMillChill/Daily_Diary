@@ -18,11 +18,11 @@
     <h1>Journal Entries</h1>
     <h2><%= user.userName %> has <%= left %> Journal Entries.</h2>
    
-    <form action="/todos/createTodo" method='POST'>
+    <form action="/journal/createJournalEntry" method='POST'>
         <div class="form-fields">
-            <input class="field" type="text" placeholder="Subject" name="subject">
-            <input class="field" type="date" name="entryDate">
-            <textarea type="text" placeholder="Write Your Journal entry" name='todoItem'></textarea>
+            <input class="field" type="text" placeholder="Subject" name="journalSubject" required>
+            <input class="field" type="date" name="journalDate" required>
+            <textarea type="text" placeholder="Write Your Journal entry" name='journalEntry' required></textarea>
             <input type="submit">
         </div>
        
@@ -30,11 +30,11 @@
     <a href="/logout">Logout</a>
     <div class="divider"></div>
     <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <h3><%= el.subject %></h3>
-                <h5><%= el.entryDate %></h5>
-                <p><%= el.todo %></p>
+    <% journal.forEach( el => { %>
+            <li class='journalEntry' data-id='<%=el._id%>'>
+                <h3><%= el.journalSubject %></h3>
+                <h5><%= el.journalDate %></h5>
+                <p><%= el.journalEntry %></p>
                 <button class='del'> Delete </button>
                 <a href="/edit/<%= el._id %>"><button class="edit">Edit</button></a>
             </li>

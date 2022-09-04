@@ -17,15 +17,15 @@
 <body>
     <h2>Edit Entry</h2>
     <ul>
-        <% todos.forEach( el => { %>
-            <% if (el._id == todoId) { %>
-                <li class="todoItem">
+        <% journal.forEach( el => { %>
+            <% if (el._id == journalId) { %>
+                <li class="journalEntry">
                     <form action="/edit/<%= el._id %>" method="POST">
-                        <input type="text" value="<%= el.subject %>" name="subject">
-                        <input type="date" value="<%= el.entryDate %>" name="entryDate">
-                        <textarea name="todo" cols="45" rows="6"><%= el.todo %></textarea>
+                        <input type="text" value="<%= el.journalSubject %>" name="journalSubject">
+                        <input type="date" value="<%= el.journalDate %>" name="journalDate">
+                        <textarea name="journalEntry" cols="45" rows="6"><%= el.journalEntry %></textarea>
                         <button type="submit" class="confirm">Confirm</button>
-                        <a href="/todos" class="cancel">Cancel</a>
+                        <a href="/journal" class="cancel">Cancel</a>
                     </form>
                 </li>
             <% } %>
