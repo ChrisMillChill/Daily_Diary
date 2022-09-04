@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+     <!-- Compiled and minified CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <h2>Edit Entry</h2>
+    <ul>
+        <% todos.forEach( el => { %>
+            <% if (el._id == todoId) { %>
+                <li class="todoItem">
+                    <form action="/edit/<%= el._id %>" method="POST">
+                        <input type="text" value="<%= el.subject %>" name="subject">
+                        <input type="date" value="<%= el.entryDate %>" name="entryDate">
+                        <textarea name="todo" cols="45" rows="6"><%= el.todo %></textarea>
+                        <button type="submit" class="confirm">Confirm</button>
+                        <a href="/todos" class="cancel">Cancel</a>
+                    </form>
+                </li>
+            <% } %>
+        <% }) %>    
+        </ul>
+</body>
