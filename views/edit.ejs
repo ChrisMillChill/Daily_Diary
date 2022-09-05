@@ -37,25 +37,25 @@
   <section class="section has-background-warning-light">
     <div class="container box">
       <h2 class="title is-2 center mb-6">Edit Entry</h2>
-      <% todos.forEach( el=> { %>
-        <% if (el._id==todoId) { %>
+      <% journal.forEach( el=> { %>
+        <% if (el._id==journalId) { %>
           <form action="/edit/<%= el._id %>" method="POST">
             <div class="columns">
               <div class="column">
-                <input class="field input" type="text" value="<%= el.subject %>" name="subject">
+                <input class="field input" type="text" value="<%= el.journalSubject %>" name="journalSubject">
               </div>
               <div class="column">
-                <input class="field input" type="date" value="<%= el.entryDate %>" name="entryDate">
+                <input class="field input" type="date" value="<%= el.journalDate %>" name="journalDate">
               </div>
             </div>
-            <textarea class="textarea" type="text" name='todo'><%= el.todo %></textarea>
+            <textarea class="textarea" type="text" name='journalEntry'><%= el.journalEntry %></textarea>
 
             <div class="columns">
               <div class="column">
                 <button type="submit" class="confirm button is-success is-outlined is-fullwidth mt-5">Confirm</button>
               </div>
               <div class="column">
-                <a href="/todos" class="button is-danger is-outlined is-fullwidth mt-5">Cancel</a>
+                <a href="/journal" class="button is-danger is-outlined is-fullwidth mt-5">Cancel</a>
               </div>
             </div>
           </form>
@@ -64,20 +64,4 @@
     </div>
   </section>
 
-  <!-- <h2>Edit Entry</h2>
-  <ul>
-    <% todos.forEach( el=> { %>
-      <% if (el._id==todoId) { %>
-        <li class="todoItem">
-          <form action="/edit/<%= el._id %>" method="POST">
-            <input type="text" value="<%= el.subject %>" name="subject">
-            <input type="date" value="<%= el.entryDate %>" name="entryDate">
-            <textarea name="todo" cols="45" rows="6"><%= el.todo %></textarea>
-            <button type="submit" class="confirm">Confirm</button>
-            <a href="/todos" class="cancel">Cancel</a>
-          </form>
-        </li>
-        <% } %>
-          <% }) %>
-  </ul> -->
 </body>

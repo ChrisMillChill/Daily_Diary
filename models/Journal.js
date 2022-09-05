@@ -1,20 +1,16 @@
 const mongoose = require('mongoose')
 
-const TodoSchema = new mongoose.Schema({
-  subject: {
+const JournalSchema = new mongoose.Schema({
+  journalSubject: {
     type: String,
     required: true,
   },
-  entryDate: {
+  journalDate: {
     type: String,
     required: true,
   },
-  todo: {
+  journalEntry: {
     type: String,
-    required: true,
-  },
-  completed: {
-    type: Boolean,
     required: true,
   },
   userId: {
@@ -23,4 +19,5 @@ const TodoSchema = new mongoose.Schema({
   }
 })
 
-module.exports = mongoose.model('Todo', TodoSchema)
+module.exports = mongoose.model('Journal', JournalSchema)
+

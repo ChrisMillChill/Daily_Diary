@@ -39,34 +39,20 @@
       <h2 class="title is-3 center">Welcome <%= user.userName %>!</h2>
       <h4 class="subtitle is-4 center mb-6">Add new entry</h4>
 
-      <form action="/todos/createTodo" method="POST">
+      <form action="/journal/createJournalEntry" method="POST">
         <div class="columns">
           <div class="column">
-            <input class="field input" type="text" placeholder="Subject" name="subject">
+            <input class="field input" type="text" placeholder="Subject" name="journalSubject">
           </div>
           <div class="column">
-            <input class="field input" type="date" name="entryDate">
+            <input class="field input" type="date" name="journalDate">
           </div>
         </div>
-        <textarea class="textarea" type="text" placeholder="Write Your Journal entry" name='todoItem'></textarea>
+        <textarea class="textarea" type="text" placeholder="Write Your Journal entry" name='journalEntry'></textarea>
         <input type="submit" value="Add Entry" class="button is-warning is-fullwidth mt-5">
       </form>
     </div>
   </section>
-
-  <!-- <h1 class="title is-1">Journal Entries</h1>
-  <h2 class="subtitle">
-    <%= user.userName %> has <%= left %> Journal Entries.
-  </h2> -->
-  <!-- <form action="/todos/createTodo" method='POST'>
-    <div class="form-fields">
-      <input class="field" type="text" placeholder="Subject" name="subject">
-      <input class="field" type="date" name="entryDate">
-      <textarea type="text" placeholder="Write Your Journal entry" name='todoItem'></textarea>
-      <input type="submit">
-    </div>
-  </form> -->
-  <!-- <a href="/logout">Logout</a> -->
 
   <section class="section is-medium">
     <div class="container">
@@ -74,20 +60,20 @@
       <h2 class="subtitle mb-6 center">
         <%= user.userName %> has <%= left %> Journal Entries.
       </h2>
-      <% todos.forEach( el=> { %>
+      <% journal.forEach( el=> { %>
         <div class="card mb-6" data-id='<%=el._id%>'>
           <header class="card-header">
             <p class="card-header-title">
-              <%= el.subject %>
+              <%= el.journalSubject %>
             </p>
             <time datetime="2022-1-1" class="card-header-icon has-background-light">
-              <%= el.entryDate %>
+              <%= el.journalDate %>
             </time>
           </header>
           <div class="card-content">
             <div class="content">
               <p>
-                <%= el.todo %>
+                <%= el.journalEntry %>
               </p>
             </div>
           </div>
@@ -99,24 +85,6 @@
         <% }) %>
     </div>
   </section>
-
-  <!-- <ul>
-    <% todos.forEach( el=> { %>
-      <li class='todoItem' data-id='<%=el._id%>'>
-        <h3>
-          <%= el.subject %>
-        </h3>
-        <h5>
-          <%= el.entryDate %>
-        </h5>
-        <p>
-          <%= el.todo %>
-        </p>
-        <button class='del'> Delete </button>
-        <a href="/edit/<%= el._id %>"><button class="edit">Edit</button></a>
-      </li>
-      <% }) %>
-  </ul> -->
 
   <script src="js/main.js"></script>
 </body>
