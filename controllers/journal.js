@@ -4,7 +4,7 @@ module.exports = {
     getJournal: async (req,res)=>{
         console.log(req.user)
         try{
-            const journalEntry = await Journal.find({userId:req.user.id}).sort({ entryDate: -1 })
+            const journalEntry = await Journal.find({userId:req.user.id}).sort({ journalDate: -1 })
             const itemsLeft = await Journal.countDocuments({userId:req.user.id})
             res.render('journal.ejs', {journal: journalEntry, left: itemsLeft, user: req.user})
         }catch(err){

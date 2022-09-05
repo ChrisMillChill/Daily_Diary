@@ -12,7 +12,7 @@ module.exports = {
         Journal.findByIdAndUpdate(
             id,
             {
-                subject: req.body.journalSubject,
+                journalSubject: req.body.journalSubject,
                 journalDate: req.body.journalDate,
                 journalEntry: req.body.journalEntry,
             },
