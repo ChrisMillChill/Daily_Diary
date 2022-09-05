@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <title>Daily Diary | Login</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <title>Login | Daily Diary</title>
 </head>
+
 <body>
   <main>
     <section class="hero is-fullheight has-background-warning-light">
@@ -22,30 +24,34 @@
           <form class="box" action="/login" method="POST">
 
             <% if (locals.messages.errors) { %>
-              <% messages.errors.forEach( el => { %>
-                  <div class="notification is-danger is-light"><%= el.msg %></div>
-              <% }) %>    
-            <% } %>
-            <% if (locals.messages.info) { %>
-              <% messages.info.forEach( el => { %>
-                  <div class="notification is-danger is-light"><%= el.msg %></div>
-              <% }) %>    
-            <% } %>
+              <% messages.errors.forEach( el=> { %>
+                <div class="notification is-danger is-light">
+                  <%= el.msg %>
+                </div>
+                <% }) %>
+                  <% } %>
+                    <% if (locals.messages.info) { %>
+                      <% messages.info.forEach( el=> { %>
+                        <div class="notification is-danger is-light">
+                          <%= el.msg %>
+                        </div>
+                        <% }) %>
+                          <% } %>
 
-            <div class="field">
-              <label class="label">Email</label>
-              <div class="control">
-                <input class="input" type="email" name="email" placeholder="e.g. alex@example.com">
-              </div>
-            </div>
-          
-            <div class="field">
-              <label class="label">Password</label>
-              <div class="control">
-                <input class="input" type="password" name="password" placeholder="********">
-              </div>
-            </div> 
-            <input type="submit" class="button is-warning is-fullwidth mt-5 is-size-5" value="Log In">
+                            <div class="field">
+                              <label class="label">Email</label>
+                              <div class="control">
+                                <input class="input" type="email" name="email" placeholder="e.g. alex@example.com">
+                              </div>
+                            </div>
+
+                            <div class="field">
+                              <label class="label">Password</label>
+                              <div class="control">
+                                <input class="input" type="password" name="password" placeholder="********">
+                              </div>
+                            </div>
+                            <input type="submit" class="button is-warning is-fullwidth mt-5 is-size-5" value="Log In">
           </form>
           <div>
             <p class="has-text-centered p-4 is-vcentered">Don't have an account?
@@ -57,11 +63,12 @@
     </section>
   </main>
 
-    <!-- <form action="/login" method="POST" class="box">
+  <!-- <form action="/login" method="POST" class="box">
         <input type="email" name="email" placeholder="Email">
         <input type="password" name="password" placeholder="Password">
         <input type="submit">
     </form> -->
 
 </body>
+
 </html>

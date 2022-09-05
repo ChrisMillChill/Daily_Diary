@@ -1,51 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
-     <!-- Compiled and minified CSS -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Journal Entries | Daily Diary</title>
 
-    <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
-    
-    <h1>Journal Entries</h1>
-    <h2><%= user.userName %> has <%= left %> Journal Entries.</h2>
-   
-    <form action="/journal/createJournalEntry" method='POST'>
-        <div class="form-fields">
-            <input class="field" type="text" placeholder="Subject" name="journalSubject" required>
-            <input class="field" type="date" name="journalDate" required>
-            <textarea type="text" placeholder="Write Your Journal entry" name='journalEntry' required></textarea>
-            <input type="submit">
+  <header>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+          <img src="/images/logo-drk-g.svg" alt="Daily Diary logo" width="112" height="35">
+        </a>
+      </div>
+
+      <div class="navbar-menu">
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a href="/logout" class="button is-warning">
+                <strong>Logout</strong>
+              </a>
+            </div>
+          </div>
         </div>
-       
-    </form>
-    <a href="/logout">Logout</a>
-    <div class="divider"></div>
-    <ul>
-    <% journal.forEach( el => { %>
-            <li class='journalEntry' data-id='<%=el._id%>'>
-                <h3><%= el.journalSubject %></h3>
-                <h5><%= el.journalDate %></h5>
-                <p><%= el.journalEntry %></p>
-                <button class='del'> Delete </button>
-                <a href="/edit/<%= el._id %>"><button class="edit">Edit</button></a>
-            </li>
-    <% }) %>    
-    </ul>
+      </div>
+    </nav>
+  </header>
 
+  <section class="section has-background-warning-light is-medium">
+    <div class="container box ">
+      <h2 class="title is-3 center">Welcome <%= user.userName %>!</h2>
+      <h4 class="subtitle is-4 center mb-6">Add new entry</h4>
 
-<!-- Compiled and minified JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-            
-    <script src="js/main.js"></script>
-    
+      <form action="/journal/createJournalEntry" method="POST">
+        <div class="columns">
+          <div class="column">
+            <input class="field input" type="text" placeholder="Subject" name="journalSubject">
+          </div>
+          <div class="column">
+            <input class="field input" type="date" name="journalDate">
+          </div>
+        </div>
+        <textarea class="textarea" type="text" placeholder="Write Your Journal entry" name='journalEntry'></textarea>
+        <input type="submit" value="Add Entry" class="button is-warning is-fullwidth mt-5">
+      </form>
+    </div>
+  </section>
+
+  <section class="section is-medium">
+    <div class="container">
+      <h1 class="title is-1 center">Journal Entries</h1>
+      <h2 class="subtitle mb-6 center">
+        <%= user.userName %> has <%= left %> Journal Entries.
+      </h2>
+      <% journal.forEach( el=> { %>
+        <div class="card mb-6" data-id='<%=el._id%>'>
+          <header class="card-header">
+            <p class="card-header-title">
+              <%= el.journalSubject %>
+            </p>
+            <time datetime="2022-1-1" class="card-header-icon has-background-light">
+              <%= el.journalDate %>
+            </time>
+          </header>
+          <div class="card-content">
+            <div class="content">
+              <p>
+                <%= el.journalEntry %>
+              </p>
+            </div>
+          </div>
+          <footer class="card-footer" data-id='<%=el._id%>'>
+            <a href="/edit/<%= el._id %>" class="edit card-footer-item button is-info  is-outlined m-4">Edit</a>
+            <button class="del card-footer-item button is-danger is-outlined m-4">Delete</button>
+          </footer>
+        </div>
+        <% }) %>
+    </div>
+  </section>
+
+  <script src="js/main.js"></script>
 </body>
+
 </html>

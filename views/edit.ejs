@@ -1,34 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
-     <!-- Compiled and minified CSS -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-    <link rel="stylesheet" href="css/style.css">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Entry | Daily Diary</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <h2>Edit Entry</h2>
-    <ul>
-        <% journal.forEach( el => { %>
-            <% if (el._id == journalId) { %>
-                <li class="journalEntry">
-                    <form action="/edit/<%= el._id %>" method="POST">
-                        <input type="text" value="<%= el.journalSubject %>" name="journalSubject">
-                        <input type="date" value="<%= el.journalDate %>" name="journalDate">
-                        <textarea name="journalEntry" cols="45" rows="6"><%= el.journalEntry %></textarea>
-                        <button type="submit" class="confirm">Confirm</button>
-                        <a href="/journal" class="cancel">Cancel</a>
-                    </form>
-                </li>
-            <% } %>
-        <% }) %>    
-        </ul>
+  <header>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+          <img src="/images/logo-drk-g.svg" alt="Daily Diary logo" width="112" height="35">
+        </a>
+      </div>
+
+      <div class="navbar-menu">
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a href="/logout" class="button is-warning">
+                <strong>Logout</strong>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="section has-background-warning-light">
+    <div class="container box">
+      <h2 class="title is-2 center mb-6">Edit Entry</h2>
+      <% journal.forEach( el=> { %>
+        <% if (el._id==journalId) { %>
+          <form action="/edit/<%= el._id %>" method="POST">
+            <div class="columns">
+              <div class="column">
+                <input class="field input" type="text" value="<%= el.journalSubject %>" name="journalSubject">
+              </div>
+              <div class="column">
+                <input class="field input" type="date" value="<%= el.journalDate %>" name="journalDate">
+              </div>
+            </div>
+            <textarea class="textarea" type="text" name='journalEntry'><%= el.journalEntry %></textarea>
+
+            <div class="columns">
+              <div class="column">
+                <button type="submit" class="confirm button is-success is-outlined is-fullwidth mt-5">Confirm</button>
+              </div>
+              <div class="column">
+                <a href="/journal" class="button is-danger is-outlined is-fullwidth mt-5">Cancel</a>
+              </div>
+            </div>
+          </form>
+          <% } %>
+            <% }) %>
+    </div>
+  </section>
+
 </body>

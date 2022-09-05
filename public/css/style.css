@@ -1,23 +1,11 @@
-h1{
-    color: red;
-}
-.completed{
-    text-decoration: line-through;
-    color: rgb(173, 68, 68);
-}
-.not{
-    text-decoration: underline;
+.completed {
+  text-decoration: line-through;
+  color: rgb(173, 68, 68);
 }
 
-textarea {
-    width: 450px;
-    height: 100px;
-  }
-  
-  body{
-    
-    text-align: center;
-  }
+.not {
+  text-decoration: underline;
+}
 
 .login-logo {
   max-width: 250px;
@@ -30,21 +18,15 @@ textarea {
   align-items: center;
 }
 
-.form-fields {
-    width: 450px;
-    height: 300px;
-    margin: 0 auto;
-}
-h3 {
-    font-size: 1.8rem;
-}
-h5 {
-    font-size: 1.2rem;
-}
-p {
-    margin: 0 auto;
-    border: 1px solid black;
-    padding: 20px;
-    width: 450px;
-}
+/* .entry-button {
+  background: none;
+  border: none;
+} */
 
+/* //////////// Override Bulma styles //////////// */
+
+.input::placeholder,
+.select select::placeholder,
+.textarea::placeholder {
+  color: #161616 !important;
+}
