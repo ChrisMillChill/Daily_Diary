@@ -1,69 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <title>Daily Diary | Sign Up</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <title>Sign Up | Daily Diary</title>
 </head>
+
 <body>
   <section class="hero is-fullheight has-background-warning-light">
     <div class="hero-body">
       <div class="container">
         <a href="/">
-        <figure class="image center pb-6">
+          <figure class="image center pb-6">
             <img class="login-logo" src="/images/logo-drk-g.svg">
           </figure>
         </a>
 
         <form class="box" action="/signup" method="POST">
           <% if (locals.messages.errors) { %>
-            <% messages.errors.forEach( el => { %>
-                <div class="alert alert-danger notification is-danger is-light"><%= el.msg %></div>
-            <% }) %>    
-          <% } %>
+            <% messages.errors.forEach( el=> { %>
+              <div class="alert alert-danger notification is-danger is-light">
+                <%= el.msg %>
+              </div>
+              <% }) %>
+                <% } %>
 
-          <div class="field">
-            <label class="label">User Name</label>
-            <div class="control">
-              <input class="input" type="text" name="userName" placeholder="User Name">
-            </div>
-          </div>
+                  <div class="field">
+                    <label class="label">User Name</label>
+                    <div class="control">
+                      <input class="input" type="text" name="userName" placeholder="User Name">
+                    </div>
+                  </div>
 
-          <div class="field">
-            <label class="label">Email</label>
-            <div class="control">
-              <input class="input" type="email" name="email" placeholder="e.g. alex@example.com">
-            </div>
-          </div>
-            
-          <div class="field">
-            <label class="label">Password</label>
-            <div class="control">
-              <input class="input" type="password" name="password" placeholder="********">
-            </div>
-          </div>
+                  <div class="field">
+                    <label class="label">Email</label>
+                    <div class="control">
+                      <input class="input" type="email" name="email" placeholder="e.g. alex@example.com">
+                    </div>
+                  </div>
 
-          <div class="field">
-            <label class="label">Confirm Password</label>
-            <div class="control">
-              <input class="input" type="password" name="confirmPassword" placeholder="Confirm Password">
-            </div>
-          </div>
-              
-          <input type="submit" class="button is-warning is-fullwidth mt-5 is-size-5" value="Sign Up">
-          </form>
+                  <div class="field">
+                    <label class="label">Password</label>
+                    <div class="control">
+                      <input class="input" type="password" name="password" placeholder="********">
+                    </div>
+                  </div>
 
-          <div>
-            <p class="has-text-centered p-4 is-vcentered">Already have an account?
-              <a href="/login">Log in</a>
-            </p>
-          </div>
+                  <div class="field">
+                    <label class="label">Confirm Password</label>
+                    <div class="control">
+                      <input class="input" type="password" name="confirmPassword" placeholder="Confirm Password">
+                    </div>
+                  </div>
 
+                  <input type="submit" class="button is-warning is-fullwidth mt-5 is-size-5" value="Sign Up">
+        </form>
+
+        <div>
+          <p class="has-text-centered p-4 is-vcentered">Already have an account?
+            <a href="/login">Log in</a>
+          </p>
         </div>
+
       </div>
+    </div>
   </section>
 </body>
+
 </html>
