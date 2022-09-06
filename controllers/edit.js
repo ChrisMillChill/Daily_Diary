@@ -1,15 +1,21 @@
 const Journal = require('../models/Journal')
 
 module.exports = {
-    getEdit: (req, res) => {
-        const id = req.params.id;
-        Journal.find({}, (err, journalEntry) => {
+    getEdit: async (req, res) => {
+        try{
+            const id = req.params.id;
+            await Journal.find({}, (err, journalEntry) => {
             res.render('edit.ejs', { journal: journalEntry, journalId: id });
         });
+        } catch(err){
+            console.log(err)
+        }
+        
     },
-    editEntry: (req, res) => {
-        const id = req.params.id;
-        Journal.findByIdAndUpdate(
+    editEntry: async (req, res) => {
+        try{
+            const id = req.params.id;
+            await Journal.findByIdAndUpdate(
             id,
             {
                 journalSubject: req.body.journalSubject,
@@ -22,5 +28,9 @@ module.exports = {
                 res.redirect('/journal');
             }
         );
+        } catch(err){
+            console.log(err)
+        }
+        
     },
 };
