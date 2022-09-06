@@ -1,6 +1,6 @@
 # Introduction
 
-A Simple ToDo App is built using the MVC Architecture, we have also implemented "authorization" so folx can sign up, customize & personalize the app 
+A Simple Journal App is built using the MVC Architecture, we have also implemented "authorization" so people can sign up, customize & personalize the app with their own Daily Diary entries. 
 
 ---
 
